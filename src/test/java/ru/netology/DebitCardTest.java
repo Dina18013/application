@@ -17,7 +17,7 @@ public class DebitCardTest {
     @Test
     public void shouldSendForm() {
         $("[data-test-id=name] input").setValue("Петров Андрей");
-        $("[data-test-id=phone] input").setValue("+79005556666");
+        $("[data-test-id=phone] input").setValue("+79001234567");
         $("[data-test-id=agreement]").click();
         $("button.button").click();
         $("[data-test-id=order-success]").shouldHave(
