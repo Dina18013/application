@@ -24,4 +24,28 @@ public class DebitCardTest {
                 exactText("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время."));
 
     }
+
+    @Test
+    public void shouldSenFormWithDash() {
+        $("[data-test-id=name] input").setValue("Иванова Анна-Мария");
+        $("[data-test-id=phone] input").setValue("+79008889999");
+        $("[data-test-id=agreement]").click();
+        $("button.button").click();
+        $("[data-test-id=order-success]").shouldHave(
+                exactText("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время."));
+
+    }
+
+    @Test
+    public void shouldSendFormWithZero() {
+        $("[data-test-id=name] input").setValue("Сидоров Иван");
+        $("[data-test-id=phone] input").setValue("+70000000000");
+        $("[data-test-id=agreement]").click();
+        $("button.button").click();
+        $("[data-test-id=order-success]").shouldHave(
+                exactText("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время."));
+
+    }
 }
+
+
